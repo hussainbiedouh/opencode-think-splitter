@@ -24,15 +24,17 @@ OpenCode's provider drivers already read the reasoning field to build a `reasoni
 
 ## Install
 
+From GitHub (not published to npm):
+
 ```
-opencode plugin add opencode-think-splitter
+opencode plugin add github:hussainbiedouh/opencode-think-splitter
 ```
 
 Or add it to `opencode.jsonc` by hand:
 
 ```jsonc
 {
-  "plugins": ["opencode-think-splitter"]
+  "plugins": ["github:hussainbiedouh/opencode-think-splitter"]
 }
 ```
 
