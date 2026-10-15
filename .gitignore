@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# pack output
+*.tgz
+
+# logs and OS cruft
+*.log
+.DS_Store
+Thumbs.db

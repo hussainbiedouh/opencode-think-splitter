@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "opencode-think-splitter",
+  "version": "1.0.0",
+  "description": "Move inline thinking tags out of a model's visible reply into OpenCode's reasoning channel.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./server": {
+      "types": "./src/server.ts",
+      "import": "./dist/server.js"
+    }
+  },
+  "main": "./dist/server.js",
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "opencode": ">=2.0.0"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "plugin",
+    "thinking",
+    "reasoning",
+    "chain-of-thought",
+    "qwen"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hussainbiedouh/opencode-think-splitter"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "bun run test/split.ts",
+    "build": "bun build src/server.ts --outfile dist/server.js --target node --format esm",
+    "prepublishOnly": "bun run typecheck && bun run test && bun run build"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.0.21",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3"
+  }
+}
