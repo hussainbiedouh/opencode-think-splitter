@@ -76,12 +76,14 @@ Options are passed per plugin entry, so you can scope the rewrite or trim the ta
 
 ```
 bun install
-bun run build     # -> dist/server.js
+bun run bundle    # -> dist/server.js
 bun run test      # 22 checks: unit, SSE, JSON, guards
 bun run typecheck
 ```
 
 `src/server.ts` is the plugin. `test/split.ts` drives the registered hook with synthetic provider responses.
+
+Do not rename `bundle` to `build`, and do not add a `prepare`, `prepack`, `install`, `preinstall` or `postinstall` script. `pacote` treats exactly those script names as a signal to run a full "git dep preparation" step when the package is installed from a git spec (see `#prepareDir` in `pacote/lib/git.js`). OpenCode's bundled runtime passes an invalid `npmBin` to that step, so `opencode plugin add <git spec>` dies with `git dep preparation failed`. Because `dist/server.js` is committed, the git install path needs no build at all — keeping the script off that list is what makes `opencode plugin add github:hussainbiedouh/opencode-think-splitter` work.
 
 ## License
 
