@@ -38,7 +38,8 @@
     "typecheck": "tsc --noEmit",
     "test": "bun run test/split.ts",
     "build": "bun build src/server.ts --outfile dist/server.js --target node --format esm",
-    "prepublishOnly": "bun run typecheck && bun run test && bun run build"
+    "prepublishOnly": "bun run typecheck && bun run test && bun run build",
+    "prepare": "bun run build"
   },
   "devDependencies": {
     "@opencode/plugin": "2.0.21",
